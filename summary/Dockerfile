@@ -2,8 +2,10 @@ FROM ubuntu:latest
 
 # Install dependencies.
 RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential curl
+RUN apt-get install -y python-dev build-essential curl
 
+RUN curl -LO https://bootstrap.pypa.io/pip/2.7/get-pip.py
+RUN python get-pip.py
 # Copy the code into the container.
 COPY ./ /app
 WORKDIR /app
